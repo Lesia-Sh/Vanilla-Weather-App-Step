@@ -18,7 +18,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  //   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -61,7 +61,7 @@ function handSubmit(event) {
 function displayImperialTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  // remove the active class the metric link
+
   metricLink.classList.remove("active");
   imperialLink.classList.add("active");
   let imperialTemperature = (metricTemperature * 9) / 5 + 32;

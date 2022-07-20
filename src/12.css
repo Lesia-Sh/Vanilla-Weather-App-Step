@@ -60,11 +60,3 @@ li:first-letter {
 .weather-temperature .active {
   text-decoration: none;
 }
-/* .units {
-  position: relative;
-  font-size: 15px;
-  padding-left: 15px;
-  padding-bottom: -30px;
-  /* top: -32; */
-/* color: blueviolet;
-} */
