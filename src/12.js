@@ -61,6 +61,9 @@ function handSubmit(event) {
 function displayImperialTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  // remove the active class the metric link
+  metricLink.classList.remove("active");
+  imperialLink.classList.add("active");
   let imperialTemperature = (metricTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(imperialTemperature);
 }
@@ -68,6 +71,8 @@ function displayImperialTemperature(event) {
 function displayMetricTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  metricLink.classList.add("active");
+  imperialLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(metricTemperature);
 }
 
