@@ -30,7 +30,10 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+
+  metricTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(metricTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -55,7 +58,28 @@ function handSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("New York");
+function displayImperialTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let imperialTemperature = (metricTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(imperialTemperature);
+}
+
+function displayMetricTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(metricTemperature);
+}
+
+let metricTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handSubmit);
+
+let imperialLink = document.querySelector("#imperial");
+imperialLink.addEventListener("click", displayImperialTemperature);
+
+let metricLink = document.querySelector("#metric");
+metricLink.addEventListener("click", displayMetricTemperature);
+
+search("New York");
